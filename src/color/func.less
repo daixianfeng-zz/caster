@@ -1,0 +1,29 @@
+.color-output(@colorName, @color){
+    @{colorName} {
+        .color-& { background: @color; }
+        // .text-& { color: @color; }
+        .bg-& { background: desaturate(lighten(@color, @value-base*3), @saturation-base); }
+        // .border-& { border-color: @color; }
+    }
+}
+.color-extend-s(@colorName, @original-color, @s, @v) when (@s >= 0){
+    .color-extend-v(@colorName, @original-color, @s, @v);
+    .color-extend-s(@colorName, @original-color, (@s - 1), @v);
+}
+.color-extend-v(@colorName, @original-color, @s, @v) when (@v >= 0){
+    .color-output(e("@{colorName}-@{s}@{v}"), hsv(hsvhue(@original-color), hsvsaturation(@original-color)-@saturation-base*@s, hsvvalue(@original-color)-@value-base*@v));
+    .color-extend-v(@colorName, @original-color, @s, (@v - 1));
+}
+.color-extend(@colorName, @original-color, @s, @v) {
+    .color-extend-s(@colorName, @original-color, @s, @v);
+}
+.color-grey-level(@colorName, @original-color, @level) when (@level >= 0) {
+    .color-output(e("@{colorName}-@{level}"), hsv(hsvhue(@original-color), 0, 0.1111*@level));
+    .color-output(e("@{colorName}L-@{level}"), hsv(hsvhue(@original-color), 0.15, 0.1111*@level));
+    .color-grey-level(@colorName, @original-color, (@level - 1));
+}
+.color-primary(@original-color, @level) when (@level > 0) {
+    .color-output(e("primary-@{level}"), lighten(@original-color, @level*2));
+    .color-output(e("primary--@{level}"), darken(@original-color, @level*2));
+    .color-primary(@original-color, (@level - 1));
+}

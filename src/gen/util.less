@@ -1,0 +1,100 @@
+@import '../color/func.less';
+
+body {
+    background: @bg-color;
+}
+
+.color-output(R, @color-red);
+.color-output(O, @color-orange);
+.color-output(Y, @color-yellow);
+.color-output(K, @color-kelly);
+.color-output(G, @color-green);
+.color-output(S, @color-spring);
+.color-output(C, @color-cyan);
+.color-output(D, @color-dodgerBlue);
+.color-output(B, @color-blue);
+.color-output(P, @color-purple);
+.color-output(M, @color-magenta);
+.color-output(H, @color-hotPink);
+
+.color-extend(R, @color-red, 4, 4);
+.color-extend(O, @color-orange, 4, 4);
+.color-extend(Y, @color-yellow, 4, 4);
+.color-extend(K, @color-kelly, 4, 4);
+.color-extend(G, @color-green, 4, 4);
+.color-extend(S, @color-spring, 4, 4);
+.color-extend(C, @color-cyan, 4, 4);
+.color-extend(D, @color-dodgerBlue, 4, 4);
+.color-extend(B, @color-blue, 4, 4);
+.color-extend(P, @color-purple, 4, 4);
+.color-extend(M, @color-magenta, 4, 4);
+.color-extend(H, @color-hotPink, 4, 4);
+
+.color-grey-level(G, @first-color, 9);
+
+@color-primary--4: shade(@first-color, 24%);
+@color-primary--3: shade(@first-color, 18%);
+@color-primary--2: shade(@first-color, 12%);
+@color-primary--1: shade(@first-color, 6%);
+@color-primary: @first-color;
+@color-primary-1: tint(@first-color, 6%);
+@color-primary-2: tint(@first-color, 12%);
+@color-primary-3: tint(@first-color, 18%);
+@color-primary-4: tint(@first-color, 24%);
+.color-output(e("primary--4"), @color-primary--4);
+.color-output(e("primary--3"), @color-primary--3);
+.color-output(e("primary--2"),  @color-primary--2);
+.color-output(e("primary--1"),  @color-primary--1);
+.color-output(e("primary"), @color-primary);
+.color-output(e("primary-1"), @color-primary-1);
+.color-output(e("primary-2"), @color-primary-2);
+.color-output(e("primary-3"), @color-primary-3);
+.color-output(e("primary-4"), @color-primary-4);
+
+@color-secondary--4: shade(@second-color, 24%);
+@color-secondary--3: shade(@second-color, 18%);
+@color-secondary--2: shade(@second-color, 12%);
+@color-secondary--1: shade(@second-color, 6%);
+@color-secondary: @second-color;
+@color-secondary-1: tint(@second-color, 6%);
+@color-secondary-2: tint(@second-color, 12%);
+@color-secondary-3: tint(@second-color, 18%);
+@color-secondary-4: tint(@second-color, 24%);
+.color-output(e("secondary--4"), @color-secondary--4);
+.color-output(e("secondary--3"), @color-secondary--3);
+.color-output(e("secondary--2"),  @color-secondary--2);
+.color-output(e("secondary--1"),  @color-secondary--1);
+.color-output(e("secondary"), @color-secondary);
+.color-output(e("secondary-1"), @color-secondary-1);
+.color-output(e("secondary-2"), @color-secondary-2);
+.color-output(e("secondary-3"), @color-secondary-3);
+.color-output(e("secondary-4"), @color-secondary-4);
+
+@color-tertiary--4: shade(@third-color, 24%);
+@color-tertiary--3: shade(@third-color, 18%);
+@color-tertiary--2: shade(@third-color, 12%);
+@color-tertiary--1: shade(@third-color, 6%);
+@color-tertiary: @third-color;
+@color-tertiary-1: tint(@third-color, 6%);
+@color-tertiary-2: tint(@third-color, 12%);
+@color-tertiary-3: tint(@third-color, 18%);
+@color-tertiary-4: tint(@third-color, 24%);
+.color-output(e("tertiary--4"), @color-tertiary--4);
+.color-output(e("tertiary--3"), @color-tertiary--3);
+.color-output(e("tertiary--2"),  @color-tertiary--2);
+.color-output(e("tertiary--1"),  @color-tertiary--1);
+.color-output(e("tertiary"), @color-tertiary);
+.color-output(e("tertiary-1"), @color-tertiary-1);
+.color-output(e("tertiary-2"), @color-tertiary-2);
+.color-output(e("tertiary-3"), @color-tertiary-3);
+.color-output(e("tertiary-4"), @color-tertiary-4);
+
+@color-error: @color-red;
+@color-warning: @color-orange;
+@color-info: @color-cyan;
+@color-success: @color-green;
+
+.color-output(e("error"), @color-error);
+.color-output(e("warning"), @color-warning);
+.color-output(e("info"), @color-info);
+.color-output(e("success"), @color-success);

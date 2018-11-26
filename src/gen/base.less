@@ -1,0 +1,20 @@
+.genColor (@base-color) when (mod(hsvhue(@base-color), 30) <= 15) {
+    @color-red: hsv(mod(hsvhue(@base-color), 30), hsvsaturation(@base-color), hsvvalue(@base-color));
+}
+.genColor (@base-color) when (mod(hsvhue(@base-color), 30) > 15) {
+    @color-red: hsv(330+mod(hsvhue(@base-color), 30), hsvsaturation(@base-color), hsvvalue(@base-color));
+}
+.genColor(@first-color);
+@color-green: hsv(hsvhue(@color-red)+120, hsvsaturation(@color-red), hsvvalue(@color-red));
+@color-blue: hsv(hsvhue(@color-red)+240, hsvsaturation(@color-red), hsvvalue(@color-red));
+
+@color-yellow: hsv(hsvhue(@color-red)+60, hsvsaturation(@color-red), hsvvalue(@color-red));
+@color-cyan: hsv(hsvhue(@color-red)+180, hsvsaturation(@color-red), hsvvalue(@color-red));
+@color-magenta: hsv(hsvhue(@color-red)+300, hsvsaturation(@color-red), hsvvalue(@color-red));
+ 
+@color-orange: hsv(hsvhue(@color-red)+30, hsvsaturation(@color-red), hsvvalue(@color-red));
+@color-kelly: hsv(hsvhue(@color-red)+90, hsvsaturation(@color-red), hsvvalue(@color-red));
+@color-spring: hsv(hsvhue(@color-red)+150, hsvsaturation(@color-red), hsvvalue(@color-red));
+@color-dodgerBlue: hsv(hsvhue(@color-red)+210, hsvsaturation(@color-red), hsvvalue(@color-red));
+@color-purple: hsv(hsvhue(@color-red)+270, hsvsaturation(@color-red), hsvvalue(@color-red));
+@color-hotPink: hsv(hsvhue(@color-red)+330, hsvsaturation(@color-red), hsvvalue(@color-red));

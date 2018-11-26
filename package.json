@@ -1,0 +1,28 @@
+{
+  "name": "caster",
+  "version": "1.0.0",
+  "title": "caster",
+  "description": "",
+  "keywords": [
+    "caster"
+  ],
+  "homepage": "",
+  "author": {
+    "name": "Daixianfeng",
+    "url": "dai_xianfeng@hotmail.com"
+  },
+  "main": "src/default.less",
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-less": "^4.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.1",
+    "gulp-webserver": "^0.9.1"
+  }
+}
