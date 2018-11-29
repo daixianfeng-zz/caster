@@ -1,0 +1,36 @@
+@import '../color/func.less';
+
+.color-text-output(e("dark"), @color-text-dark);
+.color-text-output(e("default"), @color-text);
+.color-text-output(e("weak"), @color-text-weak);
+.color-text-output(e("disabled"), @color-text-disabled);
+.color-text-output(e("error"), @color-error);
+.color-text-output(e("warning"), @color-warning);
+.color-text-output(e("info"), @color-info);
+.color-text-output(e("success"), @color-success);
+
+.color-link-output(e("link"), @color-link);
+
+.text-h1 { font-size: unit(@base-h1, px); }
+.text-h2 { font-size: unit(@base-h2, px); }
+.text-h3 { font-size: unit(@base-h3, px); }
+.text-h4 { font-size: unit(@base-h4, px); }
+.text-h5 { font-size: unit(@base-h5, px); }
+.text-h6 { font-size: unit(@base-h6, px); }
+.text-s { font-size: unit(@base-h4, px); }
+.text-m { font-size: unit(@base-h5, px); }
+.text-l { font-size: unit(@base-h6, px); }
+.text-strong { font-weight: 600; }
+
+.text-line-xs { line-height: 1 }
+.text-line-s { line-height: 1.25 }
+.text-line-m { line-height: 1.5 }
+.text-line-l { line-height: 2 }
+.text-line-xl { line-height: 2.5 }
+
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-justify { text-align: justify; text-align-last: justify; }
+.text-truncate { .mixin-text-truncate(); }
+.text-wrap { .mixin-text-wrap(); }

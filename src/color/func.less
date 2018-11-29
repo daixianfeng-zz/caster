@@ -6,6 +6,49 @@
         // .border-& { border-color: @color; }
     }
 }
+.color-text-output(@colorName, @color){
+    @{colorName} {
+        .text-& { color: @color; }
+    }
+}
+.color-link-output(@colorName, @color){
+    @{colorName} {
+        .text-& { color: @color; }
+        .text-&:active { color: darken(@color, @value-base); }
+        .text-&:focus { color: desaturate(darken(@color, @value-base), @saturation-base); }
+        .text-&:hover { color: lighten(@color, @value-base); }
+    }
+}
+.color-btn-output(@colorName, @color){
+    @{colorName} {
+        .btn-& { color: @upper-color; background: @color; }
+        .btn-&:active { background: darken(@color, @value-base); }
+        .btn-&:focus { background: lighten(@color, @value-base); }
+        .btn-&:hover { background: lighten(@color, @value-base); }
+        .btn-&-empty { color: @color-text; background: transparent; border-color: @color; }
+        .btn-&-empty:active { color: @upper-color; background: darken(@color, @value-base); }
+        .btn-&-empty:focus { color: @upper-color; background: @color; }
+        .btn-&-empty:hover { color: @upper-color; background: @color; }
+        .btn-&-ghost { color: @color-text; background: transparent; border-color: @color-border; }
+        .btn-&-ghost:active { color: darken(@color, @value-base); border-color: darken(@color, @value-base); }
+        .btn-&-ghost:focus { color: @color; border-color: @color; }
+        .btn-&-ghost:hover { color: @color; border-color: @color; }
+    }
+}
+.color-input-output(@colorName, @color){
+    @{colorName} {
+        .input-& { color: @color-text; background: transparent; border-color: @color-border; }
+        .input-&:active { border-color: darken(@color, @value-base); }
+        .input-&:focus { border-color: @color; }
+        .input-&:hover { border-color: @color; }
+    }
+}
+.mixin-border(@color){
+    border-color: @color;
+}
+.mixin-line(@color){
+    border-bottom-color: @color;
+}
 .color-extend-s(@colorName, @original-color, @s, @v) when (@s >= 0){
     .color-extend-v(@colorName, @original-color, @s, @v);
     .color-extend-s(@colorName, @original-color, (@s - 1), @v);
@@ -18,7 +61,7 @@
     .color-extend-s(@colorName, @original-color, @s, @v);
 }
 .color-grey-level(@colorName, @original-color, @level) when (@level >= 0) {
-    .color-output(e("@{colorName}-@{level}"), hsv(hsvhue(@original-color), 0, 0.1111*@level));
+    .color-output(e("@{colorName}B-@{level}"), hsv(hsvhue(@original-color), 0, 0.1111*@level));
     .color-output(e("@{colorName}L-@{level}"), hsv(hsvhue(@original-color), 0.15, 0.1111*@level));
     .color-grey-level(@colorName, @original-color, (@level - 1));
 }

@@ -18,3 +18,52 @@
 @color-dodgerBlue: hsv(hsvhue(@color-red)+210, hsvsaturation(@color-red), hsvvalue(@color-red));
 @color-purple: hsv(hsvhue(@color-red)+270, hsvsaturation(@color-red), hsvvalue(@color-red));
 @color-hotPink: hsv(hsvhue(@color-red)+330, hsvsaturation(@color-red), hsvvalue(@color-red));
+
+@color-text-dark: @dark-text-color;
+@color-text: greyscale(mix(@color-text-dark, @bg-color, 85%));
+@color-text-weak: greyscale(mix(@color-text-dark, @bg-color, 50%));
+@color-text-disabled: greyscale(mix(@color-text-dark, @bg-color, 25%));
+
+@color-link: @link-color;
+@color-border: @border-color;
+@color-line: @line-color;
+@color-shadow: @color-text;
+
+@base-radius-block: 12px;
+@base-radius-inline: 4px;
+@base-radius: 4;
+@base-radius-max: 20;
+@base-shadow: 3;
+@base-shadow-max: 9;
+
+@base-distance-1: 8;
+@base-distance-2: 5;
+@base-distance-max: 60;
+@base-length-1: 20;
+@base-length-2: 24;
+@base-length-min: 20;
+@base-length-max: 240;
+@base-percent-1: 25;
+@base-percent-2: 25;
+@base-percent-max: 100;
+
+@base-font: 14;
+@base-lineheight: 1.5;
+@base-h1: @base-font + 14;
+@base-h2: @base-font + 8;
+@base-h3: @base-font + 4;
+@base-h4: @base-font + 2;
+@base-h5: @base-font;
+@base-h6: @base-font - 2;
+
+@base-px-l: @base-h4 * 0.5 - 2;
+@base-px-m: @base-h5 * 0.5 - 2;
+@base-px-s: @base-h6 * 0.5 - 2;
+
+@base-py-l: 8;
+@base-py-m: 4;
+@base-py-s: 2;
+
+@base-h-l: @base-h4 * @base-lineheight + @base-py-l * 2;
+@base-h-m: @base-h5 * @base-lineheight + @base-py-m * 2;
+@base-h-s: @base-h6 * @base-lineheight + @base-py-s * 2;

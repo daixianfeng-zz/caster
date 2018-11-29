@@ -1,4 +1,5 @@
 @import '../color/func.less';
+@import '../size/func.less';
 
 body {
     background: @bg-color;
@@ -93,8 +94,38 @@ body {
 @color-warning: @color-orange;
 @color-info: @color-cyan;
 @color-success: @color-green;
+@color-disabled: rgb(luminance(@first-color), luminance(@first-color), luminance(@first-color));
 
-.color-output(e("error"), @color-error);
-.color-output(e("warning"), @color-warning);
-.color-output(e("info"), @color-info);
-.color-output(e("success"), @color-success);
+.color-output(error, @color-error);
+.color-output(warning, @color-warning);
+.color-output(info, @color-info);
+.color-output(success, @color-success);
+.color-output(disabled, @color-disabled);
+
+auto {
+    .m-& { margin: auto; }
+    .mx-& { margin-left: auto; margin-right: auto; }
+    .my-& { margin-top: auto; margin-bottom: auto; }
+    .mt-& { margin-top: auto; }
+    .mr-& { margin-right: auto; }
+    .mb-& { margin-bottom: auto; }
+    .ml-& { margin-left: auto; }
+    .p-& { padding: auto; }
+    .px-& { padding-left: auto; padding-right: auto; }
+    .py-& { padding-top: auto; padding-bottom: auto; }
+    .pt-& { padding-top: auto; }
+    .pr-& { padding-right: auto; }
+    .pb-& { padding-bottom: auto; }
+    .pl-& { padding-left: auto; }
+    .w-& { width: auto; }
+    .minw-& { min-width: auto; }
+    .maxw-& { max-width: auto; }
+    .h-& { height: auto; }
+    .minh-& { min-height: auto; }
+    .maxh-& { max-height: auto; }
+}
+.distance-extend(@base-distance-1, @base-distance-2, @base-distance-max);
+.mini-length-extend(1, 1, 5, 0);
+.length-extend(1, 1, 8, 0);
+.length-extend(@base-length-1, @base-length-2, @base-length-max, @base-length-min);
+.percent-extend(@base-percent-1, @base-percent-2, @base-percent-max);

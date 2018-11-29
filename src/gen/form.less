@@ -1,0 +1,46 @@
+@import '../color/func.less';
+
+input[type="text"],
+input[type="password"] {
+    -webkit-appearance: none;
+}
+input::-webkit-input-placeholder { color:@color-text-disabled; }
+input:-moz-placeholder { color:@color-text-disabled; }
+input::-moz-placeholder { color:@color-text-disabled; }
+input:-ms-input-placeholder { color:@color-text-disabled; }
+
+
+.color-input-output(R, @color-red);
+.color-input-output(O, @color-orange);
+.color-input-output(Y, @color-yellow);
+.color-input-output(K, @color-kelly);
+.color-input-output(G, @color-green);
+.color-input-output(S, @color-spring);
+.color-input-output(C, @color-cyan);
+.color-input-output(D, @color-dodgerBlue);
+.color-input-output(B, @color-blue);
+.color-input-output(P, @color-purple);
+.color-input-output(M, @color-magenta);
+.color-input-output(H, @color-hotPink);
+.color-input-output(GB, @color-disabled);
+.color-input-output(error, @color-error);
+.color-input-output(warning, @color-warning);
+.color-input-output(info, @color-info);
+.color-input-output(success, @color-success);
+
+.input {
+    display: inline-block;
+    border: 1px solid;
+    &-l { padding: unit(@base-py-l, px) unit(@base-px-l, px); font-size: unit(@base-h4, px); }
+    &-m { padding: unit(@base-py-m, px) unit(@base-px-m, px); font-size: unit(@base-h5, px); }
+    &-s { padding: unit(@base-py-s, px) unit(@base-px-s, px); font-size: unit(@base-h6, px); }
+    &-radius { border-radius: @base-radius-inline; }
+    &-block { display: block; width: 100%; }
+    &.readonly, &[readonly], &:readonly {
+        background: @color-disabled;
+    }
+    &.disabled, &[disabled], &:disabled {
+        pointer-events: none;
+        background: @color-disabled;
+    }
+}

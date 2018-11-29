@@ -28,12 +28,12 @@ gulp.task('clean', function(){
 
 gulp.task('css', function(){
     return gulp.src('./src/**/*.css')
-        .pipe(gulp.dest('./dist/'+version+'/'))
-        .pipe(rename({
-            suffix: '.min',
-            extname: '.css'
+        .pipe(cleanCSS({
+            format: {
+                breaks: { afterRuleEnds: true },
+                spaces: { beforeBlockBegins: true }
+            }
         }))
-        .pipe(cleanCSS())
         .pipe(gulp.dest('./dist/'+version+'/'));
 });
 gulp.task('less', function(){
@@ -41,12 +41,12 @@ gulp.task('less', function(){
         .pipe(less({
             paths: [path.join(__dirname, 'less', 'includes')]
         }))
-        .pipe(gulp.dest('./dist/'+version+'/'))
-        .pipe(rename({
-            suffix: '.min',
-            extname: '.css'
+        .pipe(cleanCSS({
+            format: {
+                breaks: { afterRuleEnds: true },
+                spaces: { beforeBlockBegins: true }
+            }
         }))
-        .pipe(cleanCSS())
         .pipe(gulp.dest('./dist/'+version+'/'));
 });
 

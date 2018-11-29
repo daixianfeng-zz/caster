@@ -1,0 +1,36 @@
+@import '../color/func.less';
+
+.color-btn-output(R, @color-red);
+.color-btn-output(O, @color-orange);
+.color-btn-output(Y, @color-yellow);
+.color-btn-output(K, @color-kelly);
+.color-btn-output(G, @color-green);
+.color-btn-output(S, @color-spring);
+.color-btn-output(C, @color-cyan);
+.color-btn-output(D, @color-dodgerBlue);
+.color-btn-output(B, @color-blue);
+.color-btn-output(P, @color-purple);
+.color-btn-output(M, @color-magenta);
+.color-btn-output(H, @color-hotPink);
+.color-btn-output(GB, @color-disabled);
+.color-btn-output(error, @color-error);
+.color-btn-output(warning, @color-warning);
+.color-btn-output(info, @color-info);
+.color-btn-output(success, @color-success);
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    cursor: pointer;
+    &-l { padding: unit(@base-py-l, px) unit(@base-px-l, px); font-size: unit(@base-h4, px); }
+    &-m { padding: unit(@base-py-m, px) unit(@base-px-m, px); font-size: unit(@base-h5, px); }
+    &-s { padding: unit(@base-py-s, px) unit(@base-px-s, px); font-size: unit(@base-h6, px); }
+    &-radius { border-radius: @base-radius-inline; }
+    &-block { display: flex; width: 100%; }
+    &.disabled, &[disabled], &:disabled {
+        pointer-events: none;
+        opacity: 0.65;
+    }
+}

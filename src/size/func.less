@@ -1,0 +1,109 @@
+.margin-output(@base1, @base2, @distance) when (mod(@distance, @base1) = 0),(mod(@distance, @base2) = 0){
+    @{distance} {
+        .m-& { margin: unit(@distance, px); }
+        .mx-& { margin-left: unit(@distance, px); margin-right: unit(@distance, px); }
+        .my-& { margin-top: unit(@distance, px); margin-bottom: unit(@distance, px); }
+        .mt-& { margin-top: unit(@distance, px); }
+        .mr-& { margin-right: unit(@distance, px); }
+        .mb-& { margin-bottom: unit(@distance, px); }
+        .ml-& { margin-left: unit(@distance, px); }
+    }
+}
+.padding-output(@base1, @base2, @distance) when (mod(@distance, @base1) = 0),(mod(@distance, @base2) = 0){
+    @{distance} {
+        .p-& { padding: unit(@distance, px); }
+        .px-& { padding-left: unit(@distance, px); padding-right: unit(@distance, px); }
+        .py-& { padding-top: unit(@distance, px); padding-bottom: unit(@distance, px); }
+        .pt-& { padding-top: unit(@distance, px); }
+        .pr-& { padding-right: unit(@distance, px); }
+        .pb-& { padding-bottom: unit(@distance, px); }
+        .pl-& { padding-left: unit(@distance, px); }
+    }
+}
+.length-output(@base1, @base2, @length) when (mod(@length, @base1) = 0),(mod(@length, @base2) = 0){
+    @{length} {
+        .w-& { width: unit(@length, px); }
+        .minw-& { min-width: unit(@length, px); }
+        .maxw-& { max-width: unit(@length, px); }
+        .h-& { height: unit(@length, px); }
+        .minh-& { min-height: unit(@length, px); }
+        .maxh-& { max-height: unit(@length, px); }
+    }
+}
+.border-output(@base1, @base2, @length) when (mod(@length, @base1) = 0),(mod(@length, @base2) = 0){
+    @{length} {
+        .border-& { border: unit(@length, px) solid @color-border; }
+        .border-top-& { border-top: unit(@length, px) solid @color-border; }
+        .border-right-& { border-right: unit(@length, px) solid @color-border; }
+        .border-bottom-& { border-bottom: unit(@length, px) solid @color-border; }
+        .border-left-& { border-left: unit(@length, px) solid @color-border; }
+    }
+}
+.space-output(@base1, @base2, @length) when (mod(@length, @base1) = 0),(mod(@length, @base2) = 0){
+    @{length} {
+        .space-& { letter-spacing: unit(@length, px); }
+    }
+}
+.length-percent-output(@base1, @base2, @percent) when (mod(@percent, @base1) = 0),(mod(@percent, @base2) = 0){
+    @{percent} {
+        .wp-& { width: unit(@percent, e('%')); }
+        .hp-& { height: unit(@percent, e('%')); }
+        .op-& { margin-left: unit(@percent, e('%')); }
+    }
+}
+.radius-output(@base, @length) when (mod(@length, @base) = 0){
+    @{length} {
+        .radius-& { border-radius: unit(@length, px); }
+        .radius-tl-& { border-top-left-radius: unit(@length, px); }
+        .radius-tr-& { border-top-right-radius: unit(@length, px); }
+        .radius-bl-& { border-bottom-left-radius: unit(@length, px); }
+        .radius-br-& { border-bottom-right-radius: unit(@length, px); }
+    }
+}
+.shadow-output(@base, @length) when (mod(@length, @base) = 0){
+    @{length} {
+        .shadow-& { box-shadow: 0 0 unit(@length, px) unit(@base, px) @color-shadow ; }
+        .shadow-t-& { box-shadow: 0 unit(-@base, px) unit(@length, px) unit(@base, px) @color-shadow ; }
+        .shadow-b-& { box-shadow: 0 unit(@base, px) unit(@length, px) unit(@base, px) @color-shadow ; }
+        .shadow-rb-& { box-shadow: unit(@base, px) unit(@base, px) unit(@length, px) unit(@base, px) @color-shadow ; }
+        .shadow-in-& { box-shadow: 0 0 unit(@length, px) unit(@base, px) @color-shadow inset ; }
+    }
+}
+
+.mixin-text-height(@length){
+    line-height: @length;
+}
+.mixin-text-truncate(){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mixin-text-wrap(){
+    white-space: wrap;
+}
+.distance-extend(@base1, @base2, @max) when (@max >= 0){
+    .margin-output(@base1, @base2, @max);
+    .padding-output(@base1, @base2, @max);
+    .distance-extend(@base1, @base2, (@max - 1));
+}
+.mini-length-extend(@base1, @base2, @max, @min) when (@max >= @min){
+    .border-output(@base1, @base2, @max);
+    .space-output(@base1, @base2, @max);
+    .mini-length-extend(@base1, @base2, (@max - 1), @min);
+}
+.length-extend(@base1, @base2, @max, @min) when (@max >= @min){
+    .length-output(@base1, @base2, @max);
+    .length-extend(@base1, @base2, (@max - 1), @min);
+}
+.percent-extend(@base1, @base2, @max) when (@max >= 0){
+    .length-percent-output(@base1, @base2, @max);
+    .percent-extend(@base1, @base2, (@max - 1));
+}
+.radius-extend(@base, @max) when (@max >= 0){
+    .radius-output(@base, @max);
+    .radius-extend(@base, (@max - 1));
+}
+.shadow-extend(@base, @max) when (@max >= 0){
+    .shadow-output(@base, @max);
+    .shadow-extend(@base, (@max - 1));
+}
