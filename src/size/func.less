@@ -60,14 +60,24 @@
         .radius-br-& { border-bottom-right-radius: unit(@length, px); }
     }
 }
-.shadow-output(@base, @length) when (mod(@length, @base) = 0){
-    @{length} {
-        .shadow-& { box-shadow: 0 0 unit(@length, px) unit(@base, px) @color-shadow ; }
-        .shadow-t-& { box-shadow: 0 unit(-@base, px) unit(@length, px) unit(@base, px) @color-shadow ; }
-        .shadow-b-& { box-shadow: 0 unit(@base, px) unit(@length, px) unit(@base, px) @color-shadow ; }
-        .shadow-rb-& { box-shadow: unit(@base, px) unit(@base, px) unit(@length, px) unit(@base, px) @color-shadow ; }
-        .shadow-in-& { box-shadow: 0 0 unit(@length, px) unit(@base, px) @color-shadow inset ; }
-    }
+.shadow-output(@base, @level){
+    @spread: sqrt(@level);
+    @blur: @level;
+    .shadow { box-shadow: 0 0 unit(@base, px) unit(@base, px) @color-shadow; }
+    .shadow-t { box-shadow: 0 unit(-@base, px) unit(@base, px) unit(@base, px) @color-shadow; }
+    .shadow-b { box-shadow: 0 unit(@base, px) unit(@base, px) unit(@base, px) @color-shadow; }
+    .shadow-rb { box-shadow: unit(@base, px) unit(@base, px) unit(@base, px) unit(@base, px) @color-shadow; }
+    .shadow-in { box-shadow: 0 0 unit(@base, px) unit(@base, px) @color-shadow inset; }
+    .shadow-weak { box-shadow: 0 0 unit(@base*@blur, px) unit(@base, px) @color-shadow; }
+    .shadow-t-weak { box-shadow: 0 unit(-@base, px) unit(@base*@blur, px) unit(@base, px) @color-shadow; }
+    .shadow-b-weak { box-shadow: 0 unit(@base, px) unit(@base*@blur, px) unit(@base, px) @color-shadow; }
+    .shadow-rb-weak { box-shadow: unit(@base, px) unit(@base, px) unit(@base*@blur, px) unit(@base, px) @color-shadow; }
+    .shadow-in-weak { box-shadow: 0 0 unit(@base*@blur, px) unit(@base, px) @color-shadow inset; }
+    .shadow-wide { box-shadow: 0 0 unit(@base*@blur, px) unit(@base*@spread, px) @color-shadow; }
+    .shadow-t-wide { box-shadow: 0 unit(-@base*@spread, px) unit(@base*@blur, px) unit(@base*@spread, px) @color-shadow; }
+    .shadow-b-wide { box-shadow: 0 unit(@base*@spread, px) unit(@base*@blur, px) unit(@base*@spread, px) @color-shadow; }
+    .shadow-rb-wide { box-shadow: unit(@base*@spread, px) unit(@base*@spread, px) unit(@base*@blur, px) unit(@base*@spread, px) @color-shadow; }
+    .shadow-in-wide { box-shadow: 0 0 unit(@base*@blur, px) unit(@base*@spread, px) @color-shadow inset; }
 }
 
 .mixin-text-height(@length){
@@ -102,8 +112,4 @@
 .radius-extend(@base, @max) when (@max >= 0){
     .radius-output(@base, @max);
     .radius-extend(@base, (@max - 1));
-}
-.shadow-extend(@base, @max) when (@max >= 0){
-    .shadow-output(@base, @max);
-    .shadow-extend(@base, (@max - 1));
 }

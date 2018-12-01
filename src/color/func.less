@@ -1,9 +1,9 @@
 .color-output(@colorName, @color){
     @{colorName} {
         .color-& { background: @color; }
-        // .text-& { color: @color; }
+        .text-& { color: @color; }
         .bg-& { background: desaturate(lighten(@color, @value-base*3), @saturation-base); }
-        // .border-& { border-color: @color; }
+        .border-& { border-color: @color; }
     }
 }
 .color-text-output(@colorName, @color){

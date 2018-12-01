@@ -1,9 +1,14 @@
 @import '../color/func.less';
 @import '../size/func.less';
 
-::-webkit-scrollbar{ background-color: inherit; }
+body {
+    background: @bg-color;
+    color: @color-text;
+}
+
+::-webkit-scrollbar{ background-color: inherit; width: 8px; height: 8px; }
 ::-webkit-scrollbar-track{ background-color: inherit; }
-::-webkit-scrollbar-thumb{ background-color: @color-text-weak; }
+::-webkit-scrollbar-thumb{ background-color: @color-text-disabled; border-radius: 4px; }
 
 .d-flex { display: flex; }
 .d-inline-flex { display: inline-flex; }
@@ -54,7 +59,7 @@
     border: 1px solid transparent;
     .mixin-border(@color-border);
 }
-.shadow-extend(@base-shadow, @base-shadow-max);
+.shadow-output(@base-shadow, @base-shadow-level);
 .radius-extend(@base-radius, @base-radius-max);
 .circle { border-radius: 50%; }
 .sticks { border-radius: 1000em; }

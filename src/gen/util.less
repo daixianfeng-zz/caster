@@ -1,10 +1,6 @@
 @import '../color/func.less';
 @import '../size/func.less';
 
-body {
-    background: @bg-color;
-}
-
 .color-output(R, @color-red);
 .color-output(O, @color-orange);
 .color-output(Y, @color-yellow);
@@ -31,6 +27,7 @@ body {
 .color-extend(M, @color-magenta, 4, 4);
 .color-extend(H, @color-hotPink, 4, 4);
 
+.color-output(GB, greyscale(@first-color));
 .color-grey-level(G, @first-color, 9);
 
 @color-primary--4: shade(@first-color, 24%);
@@ -126,6 +123,6 @@ auto {
 }
 .distance-extend(@base-distance-1, @base-distance-2, @base-distance-max);
 .mini-length-extend(1, 1, 5, 0);
-.length-extend(1, 1, 8, 0);
+.length-extend(1, 1, 5, 0);
 .length-extend(@base-length-1, @base-length-2, @base-length-max, @base-length-min);
 .percent-extend(@base-percent-1, @base-percent-2, @base-percent-max);
